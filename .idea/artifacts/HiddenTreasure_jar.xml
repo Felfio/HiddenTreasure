@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="HiddenTreasure:jar">
+    <output-path>$USER_HOME$/Downloads/mcserver/plugins</output-path>
+    <root id="archive" name="HiddenTreasure.jar">
+      <element id="module-output" name="HiddenTreasure" />
+    </root>
+  </artifact>
+</component>
