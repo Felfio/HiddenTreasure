@@ -54,7 +54,6 @@ public class TreasureListener implements Listener {
 
         if (itemInBlock != null) {
             blockLocation.getWorld().dropItem(blockLocation, itemInBlock);
-            event.getPlayer().sendMessage(String.format("Currently %d items in hidden.", store.getStoreSize()));
         }
     }
 
@@ -88,21 +87,17 @@ public class TreasureListener implements Listener {
 
     private void addTreasure(Player player, Location location, ItemStack itemToStore) {
         if (store.locationContainsItem(location)) {
-            player.sendMessage("There is already an item hided in here.");
+            player.sendMessage("There is already an item hidden.");
             return;
         }
 
         store.addItem(location, itemToStore);
         player.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
-
         player.sendMessage("You placed the item in this block!");
-        player.sendMessage(String.format("Currently %d items in hidden.", store.getStoreSize()));
     }
 
     private void removeTreasure(Player player, Location location) {
         ItemStack storedItem = store.removeItem(location);
         player.getInventory().setItemInMainHand(storedItem);
-
-        player.sendMessage(String.format("Currently %d items in hidden.", store.getStoreSize()));
     }
 }
